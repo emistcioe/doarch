@@ -1,9 +1,9 @@
 {
-  "name": "doce",
+  "name": "doarch",
   "type": "node",
-  "path": "/srv/apps/doce",
-  "port": 3017,
-  "domain": "doce.edu.np",
+  "path": "/srv/apps/doarch",
+  "port": 3013,
+  "domain": "doarch.edu.np",
   "build": "pnpm install && pnpm build",
   "start": "pnpm start"
 }
