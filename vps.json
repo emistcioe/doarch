@@ -1,0 +1,9 @@
+{
+  "name": "doarch",
+  "type": "node",
+  "path": "/srv/apps/doarch",
+  "port": 3013,
+  "domain": "doarch.edu.np",
+  "build": "pnpm install && pnpm build",
+  "start": "pnpm start"
+}
