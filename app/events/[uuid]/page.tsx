@@ -14,7 +14,6 @@ import {
   Users,
   ExternalLink,
 } from "lucide-react";
-import { getPublicApiUrl } from "@/lib/env";
 import { useDepartment } from "@/hooks/use-department";
 
 type EventDetail = {
@@ -82,22 +81,18 @@ export default function EventDetailPage({
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!dept?.uuid || !params.uuid) return;
+    if (!params.uuid) return;
 
     const controller = new AbortController();
     const fetchEvent = async () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch(
-          getPublicApiUrl(
-            `/api/v1/public/website-mod/events/${params.uuid}/?department=${dept.uuid}`
-          ),
-          {
-            headers: { Accept: "application/json" },
-            signal: controller.signal,
-          }
-        );
+        // Fetch the single event via our API route
+        const response = await fetch(`/api/website/global-events/${params.uuid}`, {
+          headers: { Accept: "application/json" },
+          signal: controller.signal,
+        });
         if (!response.ok) {
           throw new Error(`Event not found (${response.status})`);
         }
@@ -115,7 +110,7 @@ export default function EventDetailPage({
 
     void fetchEvent();
     return () => controller.abort();
-  }, [dept?.uuid, params.uuid]);
+  }, [params.uuid]);
 
   if (loading) {
     return (
