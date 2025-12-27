@@ -104,7 +104,7 @@ export default function NoticesPage() {
                             )}
                             {notice.isFeatured && <Badge>Featured</Badge>}
                           </div>
-                          <CardTitle className="text-lg mb-2">
+                          <CardTitle className="text-lg mb-2 break-words">
                             {notice.title}
                           </CardTitle>
                           <CardDescription className="line-clamp-2">

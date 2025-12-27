@@ -80,7 +80,7 @@ export default function NoticeDetailsPage() {
             )}
             {notice.isFeatured && <Badge>Featured</Badge>}
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">{notice.title}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 break-words">{notice.title}</h1>
           <div className="flex items-center gap-2 text-muted-foreground">
             <Calendar className="h-4 w-4" />
             <span>{fmt(notice.publishedAt)}</span>
